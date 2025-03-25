@@ -31,10 +31,15 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             BirthdayCardTheme {
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    GreetingImage(message = stringResource(R.string.happy_birthday_text), from = stringResource(
-                        R.string.signature_text
-                    )
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    GreetingImage(
+                        message = stringResource(R.string.happy_birthday_text),
+                        from = stringResource(
+                            R.string.signature_text
+                        )
                     )
                 }
             }
@@ -43,17 +48,21 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun GreetingText(message: String, from: String ,modifier: Modifier = Modifier) {
+fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
 
     Column(verticalArrangement = Arrangement.Center, modifier = modifier) {
         Text(text = message, fontSize = 100.sp, lineHeight = 116.sp, textAlign = TextAlign.Center)
-        Text(text = from, fontSize = 36.sp, modifier = Modifier.align(alignment = Alignment.CenterHorizontally))
+        Text(
+            text = from,
+            fontSize = 36.sp,
+            modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
+        )
     }
 
 }
 
 @Composable
-fun GreetingImage(message : String, from : String, modifier : Modifier = Modifier) {
+fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) {
     val image = painterResource(R.drawable.androidparty)
 
     Box(modifier) {
@@ -63,9 +72,11 @@ fun GreetingImage(message : String, from : String, modifier : Modifier = Modifie
             contentScale = ContentScale.Crop,
             alpha = 0.5F
         )
-        GreetingText(message = message, from = from, modifier = Modifier
-            .fillMaxSize()
-            .padding(8.dp))
+        GreetingText(
+            message = message, from = from, modifier = Modifier
+                .fillMaxSize()
+                .padding(8.dp)
+        )
     }
 }
 
@@ -73,6 +84,9 @@ fun GreetingImage(message : String, from : String, modifier : Modifier = Modifie
 @Composable
 fun GreetingPreview() {
     BirthdayCardTheme {
-        GreetingImage(message = stringResource(R.string.happy_birthday_text), from = stringResource(R.string.signature_text))
+        GreetingImage(
+            message = stringResource(R.string.happy_birthday_text),
+            from = stringResource(R.string.signature_text)
+        )
     }
 }
